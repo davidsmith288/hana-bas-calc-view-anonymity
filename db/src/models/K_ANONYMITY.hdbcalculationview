@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="K_ANONYMITY" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="K_ANONYMITY"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="JOBS">
+    <resourceUri>JOBS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="ORIGIN_COUNTRY"/>
+      <viewAttribute id="CURRENT_ROLE"/>
+      <viewAttribute id="JOB_LIKES"/>
+      <viewAttribute id="AGE"/>
+      <viewAttribute id="CURRENT_TENURE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="JOBS"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ORIGIN_COUNTRY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORIGIN_COUNTRY"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ORIGIN_COUNTRY"/>
+    </attribute>
+    <attribute id="CURRENT_ROLE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENT_ROLE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="CURRENT_ROLE"/>
+    </attribute>
+    <attribute id="JOB_LIKES" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JOB_LIKES"/>
+      <keyMapping columnObjectName="Projection_1" columnName="JOB_LIKES"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="ID" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Opinion ID"/>
+      <measureMapping columnObjectName="Projection_1" columnName="ID"/>
+    </measure>
+    <measure id="AGE" order="5" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="AGE"/>
+      <measureMapping columnObjectName="Projection_1" columnName="AGE"/>
+    </measure>
+    <measure id="CURRENT_TENURE" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="CURRENT_TENURE"/>
+      <measureMapping columnObjectName="Projection_1" columnName="CURRENT_TENURE"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="108" y="235"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
